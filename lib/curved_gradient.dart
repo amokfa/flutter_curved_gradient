@@ -36,7 +36,7 @@ LinearGradient CurvedGradient({
   );
   var mStops = rawStops.map((val) => stops[0] + val * (stops[1] - stops[0]));
   var mColors = rawStops.map((factor) {
-    return blendColors(colors[0], colors[1], curveGenerator(factor));
+    return blendColors(colors[1], colors[0], curveGenerator(factor));
   });
   return LinearGradient(
     colors: mColors.toList(),

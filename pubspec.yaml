@@ -1,10 +1,11 @@
 name: curved_gradient
 description: Generate a gradient using a custom curve function. Can be used in place of `LinearGradient`.
-version: 0.2.2
-repository: "https://github.com/fctorial/curved_gradient"
+version: 0.3.0
+repository: "https://github.com/amokfa/flutter_curved_gradient"
+homepage: https://amokfa.github.io
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

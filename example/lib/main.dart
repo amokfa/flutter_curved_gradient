@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
                 gradient: CurvedGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.grey, Colors.transparent],
+                  colors: [Colors.black, Colors.white],
                   granularity: 50,
-                  curveGenerator: (x) => pow(sin(x * 10), 2).toDouble(),
+                  curveGenerator: (x) => pow(sin(x * pi), 2).toDouble(),
                 ),
               ),
             ),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
                 gradient: CurvedGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.grey, Colors.transparent],
+                  colors: [Colors.black, Colors.white],
                   granularity: 50,
                   curveGenerator: (x) => pow(1 - x, 5).toDouble(),
                 ),
@@ -51,10 +51,25 @@ class MyApp extends StatelessWidget {
                 gradient: CurvedGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.grey, Colors.transparent],
-                  stops: [0.2, 0.8],
+                  colors: [Colors.black, Colors.white],
+                  stops: [0.2, 0.4],
                   granularity: 50,
                   curveGenerator: (x) => pow(1 - x, 5).toDouble(),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: CurvedGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.black, Colors.white],
+                  stops: [0, 0.1],
+                  granularity: 4,
+                  curveGenerator: (x) => x * x * x,
                 ),
               ),
             ),
