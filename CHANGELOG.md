@@ -1,3 +1,7 @@
+* 0.3.0
+
+Colors order bugfix
+
 * 0.2.2
 
 linter
