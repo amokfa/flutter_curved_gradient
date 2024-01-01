@@ -1,9 +1,10 @@
 Generate a gradient using a custom curve function.
 
-![demo1](assets/curved1.png)
+<img src="https://raw.githubusercontent.com/amokfa/flutter_curved_gradient/main/assets/curved2.png">
 
+<br/>
 
-![demo2](assets/curved2.png)
+<img src="https://raw.githubusercontent.com/amokfa/flutter_curved_gradient/main/assets/curved1.png">
 
 ## Usage
 
