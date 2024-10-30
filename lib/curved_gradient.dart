@@ -30,31 +30,22 @@ LinearGradient CurvedGradient({
   assert(stops[0] >= 0 && stops[0] <= 1);
   assert(stops[1] >= 0 && stops[1] <= 1);
   assert(stops[0] <= stops[1]);
-  var rawStops = List<double>.generate(
-    granularity,
-    (i) => i * 1.0 / (granularity - 1),
-  );
-  var mStops = rawStops.map((val) => stops[0] + val * (stops[1] - stops[0]));
-  var mColors = rawStops.map((factor) {
-    return blendColors(colors[1], colors[0], curveGenerator(factor));
-  });
+
+  final stopDifference = stops[1] - stops[0];
+  final mStops = List<double>.filled(granularity, 0.0);
+  final mColors = List<Color>.filled(granularity, colors[0]);
+
+  for (int i = 0; i < granularity; i++) {
+    final factor = i / (granularity - 1);
+    mStops[i] = stops[0] + factor * stopDifference;
+    mColors[i] = Color.lerp(colors[0], colors[1], curveGenerator(factor))!;
+  }
+
   return LinearGradient(
-    colors: mColors.toList(),
-    stops: mStops.toList(),
+    colors: mColors,
+    stops: mStops,
     begin: begin,
     end: end,
   );
 }
 
-Color blendColors(Color c1, Color c2, double factor) {
-  return Color.fromARGB(
-    blendNumbers(c1.alpha, c2.alpha, factor),
-    blendNumbers(c1.red, c2.red, factor),
-    blendNumbers(c1.green, c2.green, factor),
-    blendNumbers(c1.blue, c2.blue, factor),
-  );
-}
-
-int blendNumbers(int n1, int n2, double factor) {
-  return (n1 * factor + n2 * (1.0 - factor)).round();
-}
