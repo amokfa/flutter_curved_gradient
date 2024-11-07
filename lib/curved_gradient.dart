@@ -38,7 +38,7 @@ LinearGradient CurvedGradient({
   for (int i = 0; i < granularity; i++) {
     final factor = i / (granularity - 1);
     mStops[i] = stops[0] + factor * stopDifference;
-    mColors[i] = Color.lerp(colors[0], colors[1], curveGenerator(factor))!;
+    mColors[i] = Color.lerp(colors[1], colors[0], curveGenerator(factor))!;
   }
 
   return LinearGradient(
